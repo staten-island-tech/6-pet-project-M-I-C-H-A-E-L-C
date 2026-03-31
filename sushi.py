@@ -16,4 +16,4 @@ def reciept(orders):
         if sushi['name'] in the_reciept:
             continue
         else:
-            the_reciept[sushi['name']] = {
+            the_reciept[sushi['name']] = {}
