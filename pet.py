@@ -6,6 +6,6 @@ class Pet:
         self.bloodlust = bloodlust
         self.thirst = thirst
 MrBob = Pet("Mr.Bob", 100, 35, 16, 35)
-for i in range(3, 7):
+for i in Pet:
     if MrBob.hunger > 100:
         print("MrBob hangy")

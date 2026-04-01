@@ -16,4 +16,11 @@ def reciept(orders):
         if sushi['name'] in the_reciept:
             continue
         else:
-            the_reciept[sushi['name']] = {}
+            the_reciept[sushi['name']] = {
+                'price': sushi['price'],
+                'qty': 1
+            }
+    for suhsi, value in the_reciept.items():
+        price = value['price'] * value['qty']
+        print(sushi, value['qty'], price)
+reciept(sushi_orders)
