@@ -5,7 +5,15 @@ class Pet:
         self.hunger = hunger
         self.bloodlust = bloodlust
         self.thirst = thirst
-MrBob = Pet("Mr.Bob", 100, 35, 16, 35)
-for i in Pet:
-    if MrBob.hunger > 100:
-        print("MrBob hangy")
+
+MrBob = Pet("MrBob", 101, 90, 16, 35)
+if MrBob.name != MrBob:
+    print("Not MrBob")
+else:
+    print("Is MrBob")
+if MrBob.friendliness > 100:
+    print("MrBob heppy")
+else:
+    print("MrBob angy")
+if MrBob.hunger > 100:
+    print("MrBob Hungy!")
