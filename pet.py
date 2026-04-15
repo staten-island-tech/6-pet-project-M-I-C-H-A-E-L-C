@@ -6,23 +6,46 @@ class Pet:
         self.hunger = hunger
         self.bloodlust = bloodlust
         self.thirst = thirst
-x = random.randint(1,10000)
-y = random.randint(1,200)
-MrBob = Pet('MrBob', y, 90, x, 35)
+y = random.randint(1,200) # Friendliness
+w = random.randint(1,200) # Hunger
+x = random.randint(1,10000) # Bloodlust
+v = random.randint(1,200) # Thirst
+MrBob = Pet('MrBob', y, w, x, v)
+if MrBob.name != 'MrBob':
+    print("Not MrBob!")
+else:
+    print("MrBob!")
 if MrBob.friendliness > 100:
     print("MrBob heppy")
 else:
     print("MrBob angy")
+    z = (input("pet MrBob to increase friendliness? yes - no: ")).upper()
+    if z == "YES":
+        print("MrBob heppy")
+    else: 
+        print("...")
 if MrBob.hunger > 100:
-    print("MrBob Hungy!")
+    print("MrBob Hungy!")    
+    m = input(("Feed MrBob? yes - no: ")).upper()
+    if m == "YES":
+        print("MrBob satisfied now")
+    else: 
+        print("...")
 else:
-    print("MrBob Satisfied")
+    print("MrBob full")
 if MrBob.bloodlust > 9000:
     print("MrBob sinister level over 9000! >:(")
+    n = input(("Do something to fix MrBob? yes - no: ")).upper()
+    if n == "YES":
+        print("Innefective! MrBob doom coming!")
+    else:
+        print("Save us all.")
 elif MrBob.bloodlust > 100:
     print("MrBob sinister  >_<")
+    b = input(("Pet MrBob? yes - no: ")).upper()
+    if b == "YES":
+        print("MrBob kind (: ")
+    else:
+        print("...")
 else:
     print("MrBob kind (: ")
-z = input("pet MrBob to increase friendliness? Yes - No")
-if z == "Yes":
-    y.append(MrBob.friendliness) 
