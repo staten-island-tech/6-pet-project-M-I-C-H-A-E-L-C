@@ -17,23 +17,44 @@ while h >= 1 and t >= 1:
     if h <= 15:
         print("MrBob in critical hunger levels! Consider feeding")
     if t <= 15:
-        print("MrBob in critical thirst levels! Consider feeding")
-    x = input("Play, Feed, Give Water, Ignore: ").upper()
+        print("MrBob in critical thirst levels! Consider giving water")
+    print("Command")
+    print("Play")
+    print("Feed")
+    print("Give Water")
+    print("Ignore")
+    x = input(": ").upper()
     if x == "PLAY":
-        if h <= 30 and t <= 30:
+        if h <= 30 or t <= 30:
             f -= 10
-            print("😰")
+            print("😰 MrBob no want to play anymore")
+            print("😄🔻", f, "🍖🔻", h, "🤬🔻", b , "💧🔻", t)
         else:
             f += 10
+            print("😄🔺", f, "🍖🔻", h, "🤬🔻", b , "💧🔻", t)
         h -= 10
         b -= 10
         t -= 10
-        print("😄🔺", f, "🍖🔻", h, "🤬🔻", b , "💧🔻", t)
     elif x == "FEED":
+        f += 10
+        h += 10
+        b -= 10
+        t -= 10
         print("😄🔺", f, "🍖🔺", h, "🤬🔻", b , "💧🔻", t)
-    elif x == "Give Water":
+    elif x == "GIVE WATER":
+        f += 10
+        h -= 5
+        b -= 10
+        t += 20
         print("😄🔺", f, "🍖", h, "🤬🔻", b , "💧🔺", t)
-    elif x == "Ignore":
+    elif x == "IGNORE":
+        f -= 10
+        h -= 10
+        b += 50
+        t -= 10
         print("😄🔻", f, "🍖🔻", h, "🤬🔻", b , "💧🔻", t)
+    if b >= 100:
+        print("MR BOB SINISTER WE'RE DOOMEDDDD")
+        break
 if h <= 1 or t <= 1:
     print("MrBob passed away from your negligence. Next time, watch him responsibly.")
