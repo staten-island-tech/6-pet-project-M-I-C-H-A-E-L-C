@@ -1,22 +1,24 @@
 import random
 class Pet:
-    def __init__(self, name, friendliness, hunger, bloodlust, thirst):
+    def __init__(self, name, friendliness, hunger, anger, thirst, lbs):
         self.name = name
-        self.friendliness = friendliness
-        self.hunger = hunger
-        self.bloodlust = bloodlust
-        self.thirst = thirst
-frnd = random.randint(1,100) # Friendliness
-hngr = random.randint(1,100) # Hunger
-angr = random.randint(1,100) # Bloodlust
-thrst = random.randint(1,100) # Thirst
-MrBob = Pet('MrBob', frnd, hngr, angr, thrst)
+        self.frnd = friendliness
+        self.hngr = hunger
+        self.angr = anger
+        self.thrs = thirst
+        self.lbs = lbs
+MrBob = Pet('MrBob', 1, 1, 1, 1, 1)
+MrBob.frnd = random.randint(1,100) # Friendliness
+MrBob.hngr = random.randint(1,100) # Hunger
+MrBob.angr = random.randint(1,100) # Bloodlust
+MrBob.thrs = random.randint(1,100) # Thirst
+MrBob.lbs = random.randint(10,100) # Weight
 print("MrBob")
-print("😄", frnd, "🍖", hngr, "🤬", angr , "💧", thrst)
-while hngr >= 1 and thrst >= 1:
+print("😄", frnd, "🍖", hngr, "🤬", angr , "💧", thrs)
+while hngr >= 1 and thrs >= 1:
     if hngr <= 15:
         print("MrBob in critical hunger levels! Consider feeding")
-    if thrst <= 15:
+    if thrs <= 15:
         print("MrBob in critical thirst levels! Consider giving water")
     print("Command")
     print("Play")
@@ -28,37 +30,44 @@ while hngr >= 1 and thrst >= 1:
         print("Play, Feed, Give water or Ignore you chud")
         comm = input(": ").upper()
     if comm == "PLAY":
-        if hngr <= 30 or thrst <= 30:
+        if hngr <= 30 or thrs <= 30:
             frnd -= random.randint(1,10)
             print("😰 MrBob no want to play anymore")
         else:
             frnd += random.randint(1,10)
         hngr -= random.randint(1,10)
         angr -= random.randint(1,10)
-        thrst -= random.randint(1,10)
-        print("😄🔺", frnd, "🍖🔻", hngr, "🤬🔻", angr , "💧🔻", thrst)
+        thrs -= random.randint(1,10)
+        lbs -= random.randint (1,10)
+        print("🫃🔻", lbs, "😄🔺", frnd, "🍖🔻", hngr, "🤬🔻", angr , "💧🔻", thrs)
     elif comm == "FEED":
         frnd += random.randint(1,10)
         hngr += random.randint(1,10)
         angr -= random.randint(1,10)
-        thrst -= random.randint(1,10)
-        print("😄🔺", frnd, "🍖🔺", hngr, "🤬🔻", angr , "💧🔻", thrst)
+        thrs -= random.randint(1,10)
+        lbs += random.randint (1,10)
+        print("🫃🔺", lbs, "😄🔺", frnd, "🍖🔺", hngr, "🤬🔻", angr , "💧🔻", thrs)
     elif comm == "GIVE WATER":
         frnd += random.randint(1,10)
-        hngr -= random.randint(1,5)
+        hngr -= random.randint(1, 5)
         angr -= random.randint(1,10)
-        thrst += random.randint(5,20)
-        print("😄🔺", frnd, "🍖", hngr, "🤬🔻", angr , "💧🔺", thrst)
+        thrs += random.randint(5,20)
+        print("😄🔺", frnd, "🍖", hngr, "🤬🔻", angr , "💧🔺", thrs)
     elif comm == "IGNORE":
-        frnd -= random.randint(1,10)
-        hngr -= random.randint(1,10)
+        frnd -= random.randint(1, 10)
+        hngr -= random.randint(1, 10)
         angr += random.randint(20,50)
-        thrst -= random.randint(1,10)
-        print("😄🔻", frnd, "🍖🔻", hngr, "🤬🔺", angr , "💧🔻", thrst)
+        thrs -= random.randint(1, 10)
+        print("😄🔻", frnd, "🍖🔻", hngr, "🤬🔺", angr , "💧🔻", thrs)
     if angr >= 100:
         print("MR BOB SINISTER WE'RE DOOMEDDDD")
         break
-if hngr <= 1 or thrst <= 1:
+    elif lbs >= 200:
+        print("MrBob passed away from 'not' hungry")
+        break
+    elif lbs >= 100:
+        print("MR BOB OBESE! MAYBE PLAY A LITTLE")
+if hngr <= 1 or thrs <= 1:
     print("MrBob passed away from your negligence. Next time, watch him responsibly.")
     print("⠐⠢⢒⠐⡢⠒⢔⠈⣿⡹⣏⢿⣝⢯⣟⡽⣯⡻⣯⣻⡻⣻⡻⣻⣻⢟⣿⣻⣟⣿⣻⣟⡿⡿⡿⣿⢿⢿⡿⣿⢿⡿⠿⠿⠧⠢⡱⢌⠮⡰⡑⡌⢆⠕⡌⠦⡱⡨⢢⢊⢆⠕⡌⢆⢕⠌⡆⢕⠜⡰⡁⢎⠦⡱⡨⣉⣵⣵⣿⣿⢿⡿⣿⢿⡿⣿⢿⡿⡿⡿⡿⣿⢟⣿⣟⣿⢟⣿⣻⣟⢿⣻⣻⡻⣻⣻⣝⢿⣝⢯⣟⡽⣯⡻⣝⡯⣻⢝⡯⣻")
     print("⠈⡅⡱⢈⠔⡑⢌⠢⢸⣝⣝⢷⣹⡳⣝⢾⡵⡻⣮⣳⡽⣫⣟⣽⡳⡿⣵⢯⣞⡷⣽⣞⢿⡽⣟⣽⣻⢯⡿⣝⣓⢚⢛⠪⡊⢕⢊⠆⢕⢌⠢⡱⡈⢎⡘⢔⢌⢢⠱⡨⢢⢑⠜⡰⣁⠎⢜⡐⢕⢌⠪⡘⠔⠕⡔⢔⡈⠻⠞⣯⣻⣟⣽⢯⡿⣾⣫⡿⣽⣻⡽⣯⡻⡷⣽⢞⣟⢷⢯⡾⣫⡷⣽⣝⢷⡳⣝⢷⣹⡳⣝⢾⡪⣟⢼⣝⢮⡻⣪⣻")
